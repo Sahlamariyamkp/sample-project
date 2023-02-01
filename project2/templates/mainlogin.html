@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html lang="en">
+<body style="background-color:powderblue;">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+
+
+
+
+<body>
+<center>
+
+    <h2>LOGIN</h2>
+<div class="card"style="width: 15rem;margin:auto;">
+
+    <div class="card-body">
+
+<div class="form-container">
+
+     <form method="post">
+         {% csrf_token %}
+         <div>
+             {% for message in messages %}
+             <div class="alert alert-info" role="alert">
+                 <strong>{{message}}</strong>
+             </div>
+             {% endfor %}
+         </div>
+         <div class="form-group">
+             <input type="text"  class="form-control-input" id="lemail" required name="uname">
+             <label class="label-control" for="lemail">username</label>
+             <div class="help-block with-errors"></div>
+         </div>
+         <div class="form-group">
+             <input type="password" class="form-control-input" id="lpassword" required name="pass">
+             <label class="label-control" for="lpassword">Password</label>
+             <div class="help-block with-errors"></div>
+         </div>
+         <div class="form-group">
+             <button type="submit" id="submit" class="btn btn-primary">LOG IN</button>
+<!--             <a class="form-control-submit-button" href="{% url 'studpage' %}">LOG IN</a>-->
+         </div>
+         <div class="form-message">
+             <div id="lmsgSubmit" class="h3 text-center hidden"></div>
+
+         </div>
+
+     </form>
+ </div>
+</center>
+</body>
+</html>

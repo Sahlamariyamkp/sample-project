@@ -1,0 +1,43 @@
+{% extends 'adminpage.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Students</h4>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>sl No.</th>
+                          <th>NAME</th>
+                          <th>PHONE</th>
+                          <th>MATHS</th>
+                          <th>PHYSICS</th>
+                          <th>CHEMISTRY</th>
+                          <th>EDIT/DELETE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for i in data %}
+                        <tr>
+                          <td>{{forloop.counter}}</td>
+                          <td>{{i.name}}</td>
+                          <td>{{i.phone}}</td>
+                          <td>{{i.maths}}</td>
+                          <td>{{i.physics}}</td>
+                          <td>{{i.chemistry}}</td>
+                          <td><a class="btn btn-success"href="{% url 'mark_update' i.id %}">EDIT</a>
+                          <a class="btn btn-danger"href="{% url 'mark_delete' i.id %}">DELETE</a></td>
+
+
+
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}
